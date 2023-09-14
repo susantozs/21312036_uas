@@ -23,26 +23,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tampildata', function () {
-    return view('tampildata.index');
-});
-
-Route::get('/formtambahdata', function () {
-    return view('formtambahdata.index');
-});
-
-Route::get('/prosestambahdata', function () {
-    return view('prosestambahdata.index');
-});
-
-Route::get('/formeditdata', function () {
-    return view('formeditdata.index');
-});
-
-Route::get('/proseseditdata', function () {
-    return view('proseseditdata.index');
-});
-
-Route::get('/proseshapusdata', function () {
-    return view('proseshapusdata.index');
-});
+Route::get('/uas', [UasController::class,'index']);
+Route::get('/uas/create', [UasController::class,'create']);
+Route::post('/uas', [UasController::class,'store']);
+Route::get('/uas/{uas_id}/edit', [UasController::class,'edit']);
+Route::put('/uas/{uas_id}', [UasController::class,'update']);
+Route::delete('/uas/{uas_id}', [UasController::class,'destroy']);
